@@ -1,13 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import SearchPage from "../pages/SearchPage";
+import HomePage from "../pages/SearchPage";
 import AboutPage from "../pages/AboutPage";
+import ArticlesPage from "../pages/ArticlesPage";
+import LandingPage from "../pages/LandingPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
-      element: <HomePage/>
-    },
+      element: <LandingPagePage/>
+    }  
     {
       path: "/search",
       element: <SearchPage/>
@@ -15,7 +16,11 @@ const router = createBrowserRouter([
     {
         path: "/about",
         element: <AboutPage/>
-      },
+    },
+    {
+      path: "/articles",
+      element: <ArticlesPage/>
+    }
 
   ]);
   export default router;

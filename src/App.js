@@ -4,9 +4,11 @@ import "./styles/App.css";
 /*----- Components -----*/
 import NavBar from "./components/NavBar";
 /*----- Pages -----*/
-import HomePage from "./pages/HomePage";
 import SearchPage from "./pages/SearchPage";
+import ArticlesPage from "./pages/ArticlesPage";
 import AboutPage from "./pages/AboutPage";
+import LandingPage from "./pages/LandingPage";
+/*----- Animation -----*/
 
 
 function App() {
@@ -15,8 +17,9 @@ function App() {
       <NavBar />
       <Routes>
         {/* Free Routes */}
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/articles" element={<ArticlesPage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
     </div>
