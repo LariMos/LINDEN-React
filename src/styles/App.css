@@ -1,3 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +47,10 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: 'chomsky'; 
+  src: url('../fonts/Chomsky.otf') format('opentype');
+}
+
+
