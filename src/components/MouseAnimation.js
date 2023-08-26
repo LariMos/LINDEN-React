@@ -1,164 +1,117 @@
-// import React, { useEffect, useRef } from 'react';
-// import gsap from 'gsap';
+// import React, { useEffect, useRef } from "react";
+// import { gsap } from "gsap";
 
 // function MouseAnimation() {
 //   const triangleRef = useRef(null);
-//   const rectangleRef = useRef(null);
 
 //   useEffect(() => {
-//     gsap.set([triangleRef.current, rectangleRef.current], { xPercent: -50, yPercent: -50 });
-    
-//     const xToTriangle = gsap.quickTo(triangleRef.current, "x", {duration: 0.6, ease: "power3"});
-//     const yToTriangle = gsap.quickTo(triangleRef.current, "y", {duration: 0.6, ease: "power3"});
-//     const xToRect = gsap.quickTo(rectangleRef.current, "x", {duration: 0.6, ease: "power3"});
-//     const yToRect = gsap.quickTo(rectangleRef.current, "y", {duration: 0.6, ease: "power3"});
+//     gsap.set(triangleRef.current, { xPercent: -50, yPercent: -180 });
 
-//     const handleMouseMove = (e) => {
-//       xToTriangle(e.clientX);
-//       yToTriangle(e.clientY);
-//       xToRect(e.clientX);
-//       yToRect(e.clientY);
-//     };
+//     const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+//     const mouse = { x: pos.x, y: pos.y };
+//     const speed = 0.2;
 
-//     const hoverTarget = document.querySelector('.hover-target');
+//     const xSet = gsap.quickSetter(triangleRef.current, "x", "px");
+//     const ySet = gsap.quickSetter(triangleRef.current, "y", "px");
 
-//     hoverTarget.addEventListener('mouseenter', () => {
-//       triangleRef.current.style.display = 'none';
-//       rectangleRef.current.style.display = 'block';
+//     window.addEventListener("mousemove", (e) => {
+//       mouse.x = e.x;
+//       mouse.y = e.y + window.scrollY;  // Adjust y position considering scroll
 //     });
 
-//     hoverTarget.addEventListener('mouseleave', () => {
-//       triangleRef.current.style.display = 'block';
-//       rectangleRef.current.style.display = 'none';
+//     gsap.ticker.add(() => {
+//       const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
+//       pos.x += (mouse.x - pos.x) * dt;
+//       pos.y += (mouse.y - pos.y) * dt;
+//       xSet(pos.x);
+//       ySet(pos.y);
 //     });
 
-//     document.addEventListener('mousemove', handleMouseMove);
-
+//     // Optional: Cleanup event listener on component unmount
 //     return () => {
-//       document.removeEventListener('mousemove', handleMouseMove);
+//       window.removeEventListener("mousemove");
 //     };
-
 //   }, []);
 
 //   return (
-//     <>
-//       <div
-//         ref={triangleRef}
-//         style={{
-//           width: 0,
-//           height: 0,
-//           borderLeft: '20px solid transparent',
-//           borderRight: '20px solid transparent',
-//           borderBottom: '34px solid dodgerblue'
-//         }}
-//         className="absolute pointer-events-none"
-//       ></div>
-//       <div
-//         ref={rectangleRef}
-//         style={{ display: 'none' }}
-//         className="absolute w-24 h-24 p-6 bg-deep-orange-800 rounded-full flex text-center justify-items-center items-center text-orange-50 leading-5 font-archivio pointer-events-none"
-//       >
-//         CLICK HERE
-//       </div>
-//     </>
+//     <div
+//       ref={triangleRef}
+//       style={{
+//         width: 0,
+//         height: 0,
+//         borderLeft: '40px solid transparent',
+//         borderRight: '40px solid transparent',
+//         borderBottom: '80px solid dodgerblue'
+//       }}
+//       className="absolute z-20 pointer-events-none"
+//     ></div>
 //   );
 // }
 
 // export default MouseAnimation;
 
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import React, { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 
 function MouseAnimation() {
   const triangleRef = useRef(null);
-  const rectangleRef = useRef(null);
-  let lastScrollY = window.scrollY; // To store the previous scroll position
+  
+  const [direction, setDirection] = useState('up'); // 'up' or 'down'
+  const [lastY, setLastY] = useState(window.innerHeight / 2); 
 
   useEffect(() => {
-    gsap.set(triangleRef.current, { xPercent: 0, yPercent: -120 }); // This will place the triangle's tip on the cursor.
-    gsap.set(rectangleRef.current, { xPercent: 20, yPercent: -50 }); // This will center the circle on the cursor.
+    gsap.set(triangleRef.current, { xPercent: -50, yPercent: -50 });
 
-    const xToTriangle = gsap.quickTo(triangleRef.current, "x", { duration: 0.1, ease: "linear" });
-    const yToTriangle = gsap.quickTo(triangleRef.current, "y", { duration: 0.1, ease: "linear" });
-    const xToRect = gsap.quickTo(rectangleRef.current, "x", { duration: 0.1, ease: "linear" });
-    const yToRect = gsap.quickTo(rectangleRef.current, "y", { duration: 0.1, ease: "linear" });
+    const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const mouse = { x: pos.x, y: pos.y };
+    const speed = 0.2;
 
+    const xSet = gsap.quickSetter(triangleRef.current, "x", "px");
+    const ySet = gsap.quickSetter(triangleRef.current, "y", "px");
 
-    const handleMouseMove = (e) => {
-        const offsetX = triangleRef.current.offsetWidth / 2; // half width of triangle
-        const offsetY = triangleRef.current.offsetHeight; // full height since triangle points downwards
-      
-        xToTriangle(e.clientX - offsetX);
-        yToTriangle(e.clientY - offsetY);
-      
-        const rectOffsetX = rectangleRef.current.offsetWidth / 2; // half width of rectangle
-        const rectOffsetY = rectangleRef.current.offsetHeight; // full height of rectangle with hand icon
-    
-        xToRect(e.clientX - rectOffsetX);
-        yToRect(e.clientY - rectOffsetY);
-    };
-    
-      
+    window.addEventListener("mousemove", (e) => {
+      const newY = e.y + window.scrollY;
 
-    const hoverTarget = document.querySelector('.hover-target');
-
-    hoverTarget.addEventListener('mouseenter', () => {
-      triangleRef.current.style.display = 'none';
-      rectangleRef.current.style.display = 'block';
-    });
-
-    hoverTarget.addEventListener('mouseleave', () => {
-      triangleRef.current.style.display = 'block';
-      rectangleRef.current.style.display = 'none';
-    });
-
-    document.addEventListener('mousemove', handleMouseMove);
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY) {
-        // Scrolling Down
-        gsap.to(triangleRef.current, { rotation: 180, duration: 0.3 }); // Point down
-      } else {
-        // Scrolling Up
-        gsap.to(triangleRef.current, { rotation: 0, duration: 0.3 }); // Point up
+      if (newY > lastY) {
+        setDirection('down');
+      } else if (newY < lastY) {
+        setDirection('up');
       }
-      
-      lastScrollY = currentScrollY;
-    }
 
-    window.addEventListener('scroll', handleScroll);
+      setLastY(newY);
 
+      mouse.x = e.x;
+      mouse.y = newY;
+    });
+
+    gsap.ticker.add(() => {
+      const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
+      pos.x += (mouse.x - pos.x) * dt;
+      pos.y += (mouse.y - pos.y) * dt;
+      xSet(pos.x);
+      ySet(pos.y);
+    });
+
+    // Optional: Cleanup event listener on component unmount
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("mousemove");
     };
-  }, []);
+  }, [lastY]);
 
   return (
-    <>
-      <div
-        ref={triangleRef}
-        style={{
-          width: 0,
-          height: 0,
-          borderLeft: '40px solid transparent',
-          borderRight: '40px solid transparent',
-          borderBottom: '80px solid dodgerblue'
-        }}
-        className="absolute z-20 pointer-events-none"
-      ></div>
-      <div
-        ref={rectangleRef}
-        style={{ display: 'none' }}
-        className="absolute z-20 pointer-events-none flex flex-col items-center justify-center"
-      >
-        <i className="fa-solid fa-hand-pointer fa-6x text-rose-500 p-0 m-0"></i>
-        <h2 className='text-rose-900 font-semibold text-center'>CLICK HERE</h2>
-      </div>
-
-    </>
+    <div
+      ref={triangleRef}
+      style={{
+        width: 0,
+        height: 0,
+        borderLeft: direction === 'up' ? '40px solid transparent' : 'none',
+        borderRight: direction === 'up' ? '40px solid transparent' : 'none',
+        borderTop: direction === 'down' ? '40px solid transparent' : 'none',
+        borderBottom: direction === 'up' ? '80px solid dodgerblue' : 'none',
+        borderLeft: direction === 'down' ? '80px solid dodgerblue' : 'none',
+      }}
+      className="absolute z-20 pointer-events-none"
+    ></div>
   );
 }
 
