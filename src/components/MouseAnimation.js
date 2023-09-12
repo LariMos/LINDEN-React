@@ -1,117 +1,81 @@
-// import React, { useEffect, useRef } from "react";
-// import { gsap } from "gsap";
-
-// function MouseAnimation() {
-//   const triangleRef = useRef(null);
-
-//   useEffect(() => {
-//     gsap.set(triangleRef.current, { xPercent: -50, yPercent: -180 });
-
-//     const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-//     const mouse = { x: pos.x, y: pos.y };
-//     const speed = 0.2;
-
-//     const xSet = gsap.quickSetter(triangleRef.current, "x", "px");
-//     const ySet = gsap.quickSetter(triangleRef.current, "y", "px");
-
-//     window.addEventListener("mousemove", (e) => {
-//       mouse.x = e.x;
-//       mouse.y = e.y + window.scrollY;  // Adjust y position considering scroll
-//     });
-
-//     gsap.ticker.add(() => {
-//       const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
-//       pos.x += (mouse.x - pos.x) * dt;
-//       pos.y += (mouse.y - pos.y) * dt;
-//       xSet(pos.x);
-//       ySet(pos.y);
-//     });
-
-//     // Optional: Cleanup event listener on component unmount
-//     return () => {
-//       window.removeEventListener("mousemove");
-//     };
-//   }, []);
-
-//   return (
-//     <div
-//       ref={triangleRef}
-//       style={{
-//         width: 0,
-//         height: 0,
-//         borderLeft: '40px solid transparent',
-//         borderRight: '40px solid transparent',
-//         borderBottom: '80px solid dodgerblue'
-//       }}
-//       className="absolute z-20 pointer-events-none"
-//     ></div>
-//   );
-// }
-
-// export default MouseAnimation;
-
-import React, { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 function MouseAnimation() {
-  const triangleRef = useRef(null);
-  
-  const [direction, setDirection] = useState('up'); // 'up' or 'down'
-  const [lastY, setLastY] = useState(window.innerHeight / 2); 
+  const triangleUpRef = useRef(null);
+  const rectangleRef = useRef(null);
 
   useEffect(() => {
-    gsap.set(triangleRef.current, { xPercent: -50, yPercent: -50 });
+    gsap.set(triangleUpRef.current, { xPercent: 0, yPercent: -180 });
+    gsap.set(rectangleRef.current, { xPercent: 20, yPercent: -80 });
 
-    const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    const mouse = { x: pos.x, y: pos.y };
-    const speed = 0.2;
+    const handleMouseMove = (e) => {
+      const offsetX = triangleUpRef.current?.offsetWidth / 2;
+      const rectOffsetX = rectangleRef.current?.offsetWidth / 2;
+      const rectOffsetY = rectangleRef.current?.offsetHeight / 2;
 
-    const xSet = gsap.quickSetter(triangleRef.current, "x", "px");
-    const ySet = gsap.quickSetter(triangleRef.current, "y", "px");
+      gsap.to(triangleUpRef.current, {
+        x: e.clientX - offsetX,
+        y: e.clientY + window.scrollY,
+        duration: 0.15,
+        overwrite: true
+      });
 
-    window.addEventListener("mousemove", (e) => {
-      const newY = e.y + window.scrollY;
-
-      if (newY > lastY) {
-        setDirection('down');
-      } else if (newY < lastY) {
-        setDirection('up');
-      }
-
-      setLastY(newY);
-
-      mouse.x = e.x;
-      mouse.y = newY;
-    });
-
-    gsap.ticker.add(() => {
-      const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
-      pos.x += (mouse.x - pos.x) * dt;
-      pos.y += (mouse.y - pos.y) * dt;
-      xSet(pos.x);
-      ySet(pos.y);
-    });
-
-    // Optional: Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener("mousemove");
+      gsap.to(rectangleRef.current, {
+        x: e.clientX - rectOffsetX,
+        y: e.clientY - rectOffsetY + window.scrollY,
+        duration: 0.3,
+        overwrite: true
+      });
     };
-  }, [lastY]);
+
+    const handleHoverEnter = (e) => {
+      if (e.target.classList.contains('hover-target')) {
+        if (triangleUpRef.current) triangleUpRef.current.style.display = 'none';
+        if (rectangleRef.current) rectangleRef.current.style.display = 'block';
+      }
+    };
+
+    const handleHoverLeave = (e) => {
+      if (e.target.classList.contains('hover-target')) {
+        if (rectangleRef.current) rectangleRef.current.style.display = 'none';
+        if (triangleUpRef.current) triangleUpRef.current.style.display = 'block';
+      }
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseover', handleHoverEnter);
+    document.addEventListener('mouseout', handleHoverLeave);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseover', handleHoverEnter);
+      document.removeEventListener('mouseout', handleHoverLeave);
+    };
+  }, []);
 
   return (
-    <div
-      ref={triangleRef}
-      style={{
-        width: 0,
-        height: 0,
-        borderLeft: direction === 'up' ? '40px solid transparent' : 'none',
-        borderRight: direction === 'up' ? '40px solid transparent' : 'none',
-        borderTop: direction === 'down' ? '40px solid transparent' : 'none',
-        borderBottom: direction === 'up' ? '80px solid dodgerblue' : 'none',
-        borderLeft: direction === 'down' ? '80px solid dodgerblue' : 'none',
-      }}
-      className="absolute z-20 pointer-events-none"
-    ></div>
+    <>
+      <div
+        ref={triangleUpRef}
+        style={{
+          width: 0,
+          height: 0,
+          borderLeft: '40px solid transparent',
+          borderRight: '40px solid transparent',
+          borderBottom: '80px solid dodgerblue'
+        }}
+        className="absolute z-20 pointer-events-none"
+      ></div>
+      <div
+        ref={rectangleRef}
+        style={{ display: 'none' }}
+        className="absolute z-20 pointer-events-none flex flex-col items-center justify-center"
+      >
+        <i className="fa-solid fa-hand-pointer fa-6x text-rose-500 p-0 m-0"></i>
+        <h2 className='text-rose-900 font-semibold text-center'>CLICK HERE</h2>
+      </div>
+    </>
   );
 }
 

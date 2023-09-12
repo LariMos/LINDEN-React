@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';  // Assuming you have axios installed
-import lindenImage from '../images/linden.jpeg';
+// import lindenImage from '../images/linden.jpeg';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { YearCalendar, MonthCalendar } from '@mui/x-date-pickers';
+import MouseAnimation from '../components/MouseAnimation';
 
 const API = 'https://linden-backend-git-verceldeploy-larimos.vercel.app';
 
@@ -40,13 +41,12 @@ function HomePage() {
   };
 
   return (
-        <div
-          className="bg-cover bg-center h-screen text-xl"
-          style={{ backgroundImage: `url(${lindenImage})` }}
-        >
-          <div className="text-white font-bold text-4xl p-10">
-            Welcome back, we missed you
-          </div>
+    <div className="relative h-screen">
+      <MouseAnimation />
+        {/* // <div
+        //   className="bg-cover bg-center h-screen text-xl"
+        //   style={{ backgroundImage: `url(${lindenImage})` }}
+        // > */}
           
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <div className="flex space-x-6 p-10">
@@ -67,7 +67,7 @@ function HomePage() {
             <div className="p-10">
               {yearPrompt && <p className="text-red-500">Please select a year.</p>}
               <button 
-                className="bg-tahiti-500 hover:bg-tahiti-700 text-white font-bold py-2 px-4 mt-4 rounded"
+                className="hover-target bg-tahiti-500 hover:bg-tahiti-700 text-white font-bold py-2 px-4 mt-4 rounded"
                 onClick={handleSearch}
               >
                 Search
