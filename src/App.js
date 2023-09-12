@@ -8,6 +8,7 @@ import SearchPage from "./pages/SearchPage";
 import ArticlesPage from "./pages/ArticlesPage";
 import AboutPage from "./pages/AboutPage";
 import LandingPage from "./pages/LandingPage";
+import MouseAnimation from "./components/MouseAnimation";
 /*----- Animation -----*/
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/articles" element={<ArticlesPage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
+      <MouseAnimation />
     </div>
   );
 }

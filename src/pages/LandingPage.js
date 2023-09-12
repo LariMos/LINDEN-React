@@ -8,7 +8,7 @@ function LandingPage() {
       <MouseAnimation />
        
       <div className='flex flex-col justify-center items-center leading-none mt-36 mx-3 lg:text-[200px] md:text-[140px] sm:text-[50px] font-archivio'>
-        <div className='hover-target'>
+        <div>
             WELCOME
         </div>
         <div>
