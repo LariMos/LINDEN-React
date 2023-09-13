@@ -9,7 +9,7 @@ import MouseAnimation from '../components/MouseAnimation';
 
 const API = 'https://linden-backend-git-verceldeploy-larimos.vercel.app';
 
-function HomePage() {
+function SearchPage() {
   const navigate = useNavigate();
   const [selectedYear, setSelectedYear] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);
@@ -24,7 +24,7 @@ function HomePage() {
 
     axios.get(url)
       .then(response => {
-        setArticles(response.data);
+        // setArticles(response.data);
         navigate(`/articles`, { state: { articles: response.data } });  // Passing articles as state to next page
       })
       .catch(error => {
@@ -74,4 +74,4 @@ function HomePage() {
       );
     }
     
-    export default HomePage;
+    export default SearchPage;
