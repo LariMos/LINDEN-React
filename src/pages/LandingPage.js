@@ -1,51 +1,64 @@
-import React from 'react'
-import MouseAnimation from '../components/MouseAnimation'
-
+import React from 'react';
+import MouseAnimation from '../components/MouseAnimation';
+import lindenSunVideo from '../videos/lindensun.mp4';
 
 function LandingPage() {
   return (
     <div className="relative h-screen">
       <MouseAnimation />
-       
-      <div className='flex flex-col justify-center items-center leading-none mt-36 mx-3 lg:text-[200px] md:text-[140px] sm:text-[50px] font-archivio'>
-        <div>
-            WELCOME
+      
+      <div className="relative z-10 flex flex-col justify-center items-center leading-none mt-20 mx-3 lg:mt-36 lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">
+        <div>WELCOME</div>
+        <div>TO</div>
+        <div className="relative text-transparent bg-clip-text">
+          {/* SVG with clipPath */}
+          <svg width="100%" height="100%" style={{ position: 'absolute', top: '0', left: '0' }}>
+        <defs>
+            <clipPath id="video-clip">
+                <text x="50%" y="50%" dy=".35em" textAnchor="middle" fontSize="190px" className="font-archivio lg:text-[190px] md:text-[100px] sm:text-[60px]">LINDEN</text>
+            </clipPath>
+        </defs>
+        <foreignObject x="0" y="0" width="100%" height="100%" clipPath="url(#video-clip)">
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                src={lindenSunVideo}
+                style={{ objectFit: 'cover', width: '300%', height: '300%' }}
+                playbackRate={0.5}
+            ></video>
+        </foreignObject>
+    </svg>
+          LINDEN
         </div>
-        <div>
-            TO
-        </div>
-        <div className='bg-gradient-to-r from-bermuda to-amber-200 text-transparent bg-clip-text'>
-            LINDEN
-        </div>
-
-        <div className='lg:text-3xl sm:text-5xl leading-8'>
-            YOUR HOME FOR <span className='font-chomsky lg:text-6xl sm:text-6xl'>New York Times</span> ARTICLES
+        <div className="text-xl lg:text-3xl md:text-2xl sm:text-xl leading-6 lg:leading-8">
+          YOUR HOME FOR <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">New York Times</span> ARTICLES
         </div>
       </div>
 
-      <div className="bg-yellow-400 h-96 flex items-center justify-center text-center p-80 mt-20">
+      <div className="bg-yellow-400 md:h-96 lg:h-96 flex items-center justify-center text-center p-10 lg:px-80 md:px-80 mt-20 lg:mt-20">
         <div>
-          <div className="text-4xl font-bold mb-6">
+          <div className="md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
             "The more that you read, the more things you will know. The more that you learn, the more places you'll go."
           </div>
-          <div className="text-xl font-light">
+          <div className="text-sm lg:text-xl md:text-lg font-light">
             Dr. Seuss in "I Can Read With My Eyes Shut!"
           </div>
         </div>
       </div>
       
-      <div className="h-96 bg-white flex items-center justify-between p-40">
-        <div className="text-4xl font-bold">
+      <div className="h-48 lg:h-96 bg-white flex items-center justify-between p-8 lg:p-40">
+        <div className="text-2xl lg:text-4xl font-bold">
           Ready to start your adventure? Let's go!
         </div>
-        <button className="bg-lime-500 hover-target text-white px-8 py-4 rounded-md">
+        <button className="bg-lime-500 hover-target text-white px-6 py-3 lg:px-8 lg:py-4 rounded-md">
           Search Articles
         </button>
       </div>
 
     </div>
-  )
+  );
 }
 
 export default LandingPage;
-
