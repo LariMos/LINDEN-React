@@ -13,6 +13,7 @@ module.exports = withMT({
       transparent: 'transparent',
       current: 'currentColor',
       'white': '#ffffff',
+      'linden': '#B5F6E5',
       'purple': '#3f3cbb',
       'midnight': '#121063',
       'metal': '#565584',
@@ -41,6 +42,7 @@ module.exports = withMT({
       'yellow':{
         50: '#fefce8'
       },
+      'zinc': '#D9D9D9',
       'silver': '#fafafa',
       'bubble-gum': '#e91e63',
       'bermuda': '#78dcca',
@@ -52,7 +54,7 @@ module.exports = withMT({
         900: '#1b5e20'
       },
       'light-green': '#8bc34a',
-      'grey':{
+      'gray':{
         400: '#bdbdbd'
       },
       'slate': {
@@ -80,12 +82,23 @@ module.exports = withMT({
       fontFamily: {
         'orbitron': ['Orbitron', 'sans-serif'],
         'archivio': ['Archivo Black','sans-serif'],
-        'chomsky': ['chomsky','sans-serif']
+        'chomsky': ['chomsky','sans-serif'],
+        'poppins': ['Poppins', 'sans-serif']
       },
       fontWeight: {
         'orbitron': 900,
-        'archivio': 400
-      }
+        'archivio': 400,
+        'poppins': 300,
+        'poppins': 600,
+        'poppins': 700,
+        'poppins': 800,
+      },
+      screens: {
+        'sm': '640px',
+        'md': '1024px',
+        'lg': '1280px',
+        'xl': '1536px',
+      },
     },
   },
   plugins: [
