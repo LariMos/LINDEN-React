@@ -70,9 +70,9 @@ function MouseAnimation() {
       <div
         ref={rectangleRef}
         style={{ display: 'none' }}
-        className="absolute z-20 pointer-events-none flex flex-col items-center justify-center"
+        className="absolute z-50 pointer-events-none flex flex-col items-center justify-center"
       >
-        <i className="fa-solid fa-hand-pointer fa-6x text-rose-500 p-0 m-0"></i>
+        <i className="z-50 fa-solid fa-hand-pointer fa-6x text-rose-500 p-0 m-0"></i>
         <h2 className='text-rose-900 font-semibold text-center'>CLICK HERE</h2>
       </div>
     </>
