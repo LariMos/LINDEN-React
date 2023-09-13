@@ -14,7 +14,7 @@ function HomePage() {
   const [selectedYear, setSelectedYear] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [yearPrompt, setYearPrompt] = useState(false);
-  const [articles, setArticles] = useState([]);
+  // const [articles, setArticles] = useState([]);
 
   const fetchArticles = (year, month) => {
     let url = `${API}/api/articles?year=${year}`;
@@ -43,10 +43,6 @@ function HomePage() {
   return (
     <div className="relative h-screen">
       <MouseAnimation />
-        {/* // <div
-        //   className="bg-cover bg-center h-screen text-xl"
-        //   style={{ backgroundImage: `url(${lindenImage})` }}
-        // > */}
           
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <div className="flex space-x-6 p-10">
