@@ -7,18 +7,18 @@ function LandingPage() {
     <div className="relative h-screen">
       <MouseAnimation />
       
-      <div className="relative z-10 flex flex-col justify-center items-center leading-none mt-20 mx-3 lg:mt-36 lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">
+      <div className="relative h-full z-10 flex flex-col justify-center items-center leading-none mx-3 lg:mt-0 md:mt-0 lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">
         <div>WELCOME</div>
         <div>TO</div>
         <div className="relative text-transparent bg-clip-text">
           {/* SVG with clipPath */}
           <svg width="100%" height="100%" style={{ position: 'absolute', top: '0', left: '0' }}>
-        <defs>
-            <clipPath id="video-clip">
+            <defs>
+              <clipPath id="video-clip">
                 <text x="50%" y="50%" dy=".35em" textAnchor="middle" fontSize="190px" className="font-archivio lg:text-[190px] md:text-[100px] sm:text-[60px]">LINDEN</text>
-            </clipPath>
-        </defs>
-        <foreignObject x="0" y="0" width="100%" height="100%" clipPath="url(#video-clip)">
+              </clipPath>
+            </defs>
+            <foreignObject x="0" y="0" width="100%" height="100%" clipPath="url(#video-clip)">
             <video
                 autoPlay
                 loop
@@ -28,8 +28,8 @@ function LandingPage() {
                 style={{ objectFit: 'cover', width: '300%', height: '300%' }}
                 playbackRate={0.5}
             ></video>
-        </foreignObject>
-    </svg>
+            </foreignObject>
+          </svg>
           LINDEN
         </div>
         <div className="text-xl lg:text-3xl md:text-2xl sm:text-xl leading-6 lg:leading-8">
@@ -37,7 +37,7 @@ function LandingPage() {
         </div>
       </div>
 
-      <div className="bg-yellow-400 md:h-96 lg:h-96 flex items-center justify-center text-center p-10 lg:px-80 md:px-80 mt-20 lg:mt-20">
+      <div className="bg-yellow-400 h-full flex items-center justify-center text-center p-10 lg:px-80 md:px-80 mt-20 lg:mt-20">
         <div>
           <div className="md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
             "The more that you read, the more things you will know. The more that you learn, the more places you'll go."

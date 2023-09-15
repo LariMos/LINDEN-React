@@ -7,7 +7,7 @@ function MouseAnimation() {
 
   useEffect(() => {
     gsap.set(triangleUpRef.current, { xPercent: 0, yPercent: -180 });
-    gsap.set(rectangleRef.current, { xPercent: 20, yPercent: -80 });
+    gsap.set(rectangleRef.current, { xPercent: 20, yPercent: -20 });
 
     const handleMouseMove = (e) => {
       const offsetX = triangleUpRef.current?.offsetWidth / 2;
@@ -73,7 +73,7 @@ function MouseAnimation() {
         className="absolute z-50 pointer-events-none flex flex-col items-center justify-center"
       >
         <i className="z-50 fa-solid fa-hand-pointer fa-6x text-rose-500 p-0 m-0"></i>
-        <h2 className='text-rose-900 font-semibold text-center'>CLICK HERE</h2>
+        <h2 className='mt-2 rounded-lg text-rose-500 bg-white font-semibold text-center'> CLICK HERE </h2>
       </div>
     </>
   );
