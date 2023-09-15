@@ -65,7 +65,8 @@ module.exports = withMT({
         900: '#0f172a'
       },
       'teal': {
-        500: '#14b8a6'
+        500: '#14b8a6',
+        50: '#f0fdfa'
       },
       'rose': {
         500: '#f43f5e',
