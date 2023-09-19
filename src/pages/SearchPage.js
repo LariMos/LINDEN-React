@@ -4,8 +4,8 @@ import axios from 'axios';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { YearCalendar, MonthCalendar } from '@mui/x-date-pickers';
-import MouseAnimation from '../components/MouseAnimation';
-
+import YearScroller from '../components/YearScroller';
+import MonthScroller from '../components/MonthScroller';
 const API = 'https://linden-backend-git-verceldeploy-larimos.vercel.app';
 
 function SearchPage() {
@@ -39,8 +39,6 @@ function SearchPage() {
 
   return (
     <div className="relative h-screen">
-      <MouseAnimation />
-
       <div className="flex flex-col items-center justify-center mx-20">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <div className="w-full flex justify-center text-20xl mb-4">
@@ -60,6 +58,9 @@ function SearchPage() {
             />
           </div>
         </div>
+        <YearScroller/>
+        <MonthScroller/>
+
         
         <div className="w-full text-center">
           {yearPrompt && <p className="text-red-500 text-20xl">Please select a year.</p>}

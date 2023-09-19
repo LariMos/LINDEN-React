@@ -6,6 +6,13 @@ html, body, #root {
   height: 100%;
 }
 
+.hover-target:hover {
+  cursor: url('./svg/click.svg') 16 16, pointer !important;
+}
+
+a {
+  cursor: default;
+}
 
 body {
   /* cursor: none; */
@@ -18,12 +25,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
-
-a, button {
-  /* cursor: none !important; */
-}
 
 
 code {
