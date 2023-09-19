@@ -50,6 +50,17 @@ body {
   }
 }
 
+@keyframes movingGradient {
+  0% {
+    background-position: -200% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+
+
 @font-face {
   font-family: 'chomsky'; 
   src: url('../fonts/Chomsky.otf') format('opentype');

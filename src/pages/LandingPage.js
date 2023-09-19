@@ -1,6 +1,7 @@
 import React from 'react';
-// import MouseAnimation from '../components/MouseAnimation';
+import { Link } from 'react-router-dom';
 import lindenSunVideo from '../videos/lindensun.mp4';
+
 
 function LandingPage() {
   return (
@@ -33,8 +34,9 @@ function LandingPage() {
           LINDEN
         </div>
         <div className="text-xl lg:text-3xl md:text-2xl sm:text-xl leading-6 lg:leading-8">
-          YOUR HOME FOR <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">New York Times</span> ARTICLES
+          YOUR HOME FOR <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">The New York Times</span> ARTICLES
         </div>
+        <div className='text-lg mt-24 animate-bounce'>Scroll Down</div>
       </div>
 
       <div className="bg-yellow-400 h-full flex items-center justify-center text-center p-10 lg:px-80 md:px-80 mt-20 lg:mt-20">
@@ -48,13 +50,13 @@ function LandingPage() {
         </div>
       </div>
       
-      <div className="h-48 lg:h-96 bg-white flex items-center justify-between p-8 lg:p-40">
+      <div className="h-full lg:h-96 bg-white flex flex-col items-center justify-center p-8 lg:p-40">
         <div className="text-2xl lg:text-4xl font-bold">
           Ready to start your adventure? Let's go!
         </div>
-        <button className="bg-lime-500 hover-target text-white px-6 py-3 lg:px-8 lg:py-4 rounded-md">
+        <Link to="/search" className="bg-lime-500 hover-target text-white px-6 py-3 m-12 lg:px-8 lg:py-4 rounded-md">
           Search Articles
-        </button>
+        </Link>
       </div>
 
     </div>

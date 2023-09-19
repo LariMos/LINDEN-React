@@ -38,6 +38,15 @@ function SearchPage() {
 
     return (
         <div className="relative h-screen">
+          <div className="relative h-full z-10 flex flex-col justify-center items-center leading-none mx-3 lg:mt-0 md:mt-0">
+          <div className="lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">START</div>
+          <div className="lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">BROWSING</div>
+          <div className="mt-5 lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio bg-gradient-to-r from-bermuda to-amber-200 text-transparent bg-clip-text ">LINDEN</div>
+          <div className="text-xl lg:text-3xl md:text-2xl sm:text-xl font-archivio leading-6 lg:leading-8">
+          FOR ARTICLES FROM <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">New York Times</span>
+          </div>
+          <div className='text-lg mt-24 font-archivio animate-bounce'>Scroll Down</div>
+        </div>
             <div className="flex h-full flex-col items-center justify-center mx-20">
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <div className="flex space-x-4"> {/* Added flex container */}
