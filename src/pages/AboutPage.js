@@ -9,6 +9,9 @@ function AboutPage() {
         <div className="lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">WHAT</div>
         <div className="lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">IS</div>
         <div className="mt-5 lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio bg-gradient-to-r from-bermuda to-amber-200 text-transparent bg-clip-text">LINDEN</div>
+        <div className="text-xl lg:text-3xl md:text-2xl sm:text-xl font-archivio leading-6 lg:leading-8">
+          YOUR HOME FOR <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">New York Times</span> ARTICLES
+        </div>
       </div> 
       <div className="relative h-full flex flex-col justify-center align-center z-10 bg-teal-50">
         <div className="w-1/2  font-poppins-700 text-xl lg:text-3xl mx-auto">
