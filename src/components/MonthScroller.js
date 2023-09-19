@@ -1,20 +1,21 @@
 import React from 'react';
 
-function MonthScroller() {
+function MonthScroller({ onMonthSelect }) {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    const handleMonthClick = (month) => {
-        console.log("Selected month:", month);
-        // Handle month selection logic here.
+    const handleMonthClick = (monthIndex) => {
+        if (onMonthSelect) {
+            onMonthSelect(monthIndex + 1); // To get the month number (1-12)
+        }
     };
 
     return (
-        <div className="overflow-y-auto h-64 w-24 border border-gray-300">
-            {months.map(month => (
+        <div className="overflow-y-auto h-96 w-120 border border-gray-300"> {/* Adjusted dimensions */}
+            {months.map((month, index) => (
                 <div
                     key={month}
-                    className="cursor-pointer px-4 py-2 hover:bg-gray-200 text-center"
-                    onClick={() => handleMonthClick(month)}
+                    className="hover-target cursor-pointer px-20 py-10 hover:bg-gray-200 text-center text-5xl" 
+                    onClick={() => handleMonthClick(index)}
                 >
                     {month}
                 </div>
