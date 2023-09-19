@@ -1,20 +1,21 @@
 import React from 'react';
 
-function YearScroller() {
+function YearScroller({ onYearSelect }) {
     const startYear = 1908;
     const endYear = 2023;
 
     const handleYearClick = (year) => {
-        console.log("Selected year:", year);
-        // Handle year selection logic here.
+        if (onYearSelect) {
+            onYearSelect(year);
+        }
     };
 
     return (
-        <div className="overflow-y-auto h-64 w-24 border border-gray-300">
+        <div className="overflow-y-auto h-96 w-120 border border-gray-300"> {/* Adjusted dimensions */}
             {Array.from({ length: endYear - startYear + 1 }, (_, index) => startYear + index).map(year => (
                 <div
                     key={year}
-                    className="cursor-pointer px-4 py-2 hover:bg-gray-200 text-center"
+                    className="hover-target cursor-pointer px-20 py-10 hover:bg-gray-200 text-center text-5xl" 
                     onClick={() => handleYearClick(year)}
                 >
                     {year}
