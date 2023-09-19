@@ -1,11 +1,10 @@
 import React from 'react'
-import MouseAnimation from '../components/MouseAnimation'
+
 
 
 function AboutPage() {
   return (
     <div className="relative h-screen">
-      <MouseAnimation />
       <div className="relative h-full z-10 flex flex-col justify-center items-center leading-none mx-3 lg:mt-0 md:mt-0">
         <div className="lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">WHAT</div>
         <div className="lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">IS</div>

@@ -1,11 +1,11 @@
 import React from 'react';
-import MouseAnimation from '../components/MouseAnimation';
+// import MouseAnimation from '../components/MouseAnimation';
 import lindenSunVideo from '../videos/lindensun.mp4';
 
 function LandingPage() {
   return (
     <div className="relative h-screen">
-      <MouseAnimation />
+      {/* <MouseAnimation /> */}
       
       <div className="relative h-full z-10 flex flex-col justify-center items-center leading-none mx-3 lg:mt-0 md:mt-0 lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">
         <div>WELCOME</div>
