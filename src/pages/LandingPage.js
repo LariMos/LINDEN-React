@@ -1,8 +1,19 @@
-import React from 'react';
-// import MouseAnimation from '../components/MouseAnimation';
+import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import lindenSunVideo from '../videos/lindensun.mp4';
+import Arrow from '../svg/arrow.svg'; 
+
 
 function LandingPage() {
+
+  const targetRef = useRef(null);
+
+  const scrollToNextDiv = () => {
+    if (targetRef.current) {
+        targetRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative h-screen">
       {/* <MouseAnimation /> */}
@@ -33,28 +44,30 @@ function LandingPage() {
           LINDEN
         </div>
         <div className="text-xl lg:text-3xl md:text-2xl sm:text-xl leading-6 lg:leading-8">
-          YOUR HOME FOR <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">New York Times</span> ARTICLES
+          YOUR HOME FOR <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">The New York Times</span> ARTICLES
+        </div>
+        <div className='flex flex-row items-center mt-8 p-4'>
+        <img src={Arrow} alt="Arrow pointing down" className="hover-target" onClick={scrollToNextDiv} />
+        <div className='hover-target text-lg animate-bounce ml-8' onClick={scrollToNextDiv}>Scroll Down</div>
         </div>
       </div>
 
-      <div className="bg-yellow-400 h-full flex items-center justify-center text-center p-10 lg:px-80 md:px-80 mt-20 lg:mt-20">
-        <div>
+      <div ref={targetRef} className="bg-yellow-400 h-full flex flex-col items-center justify-center text-center p-10 lg:px-80 md:px-80 mt-20 lg:mt-20">
           <div className="md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
             "The more that you read, the more things you will know. The more that you learn, the more places you'll go."
           </div>
           <div className="text-sm lg:text-xl md:text-lg font-light">
             Dr. Seuss in "I Can Read With My Eyes Shut!"
           </div>
-        </div>
       </div>
       
-      <div className="h-48 lg:h-96 bg-white flex items-center justify-between p-8 lg:p-40">
+      <div className="h-full lg:h-96 bg-white flex flex-col items-center justify-center p-8 lg:p-40">
         <div className="text-2xl lg:text-4xl font-bold">
           Ready to start your adventure? Let's go!
         </div>
-        <button className="bg-lime-500 hover-target text-white px-6 py-3 lg:px-8 lg:py-4 rounded-md">
+        <Link to="/search" className="bg-lime-500 hover-target text-white px-6 py-3 m-12 lg:px-8 lg:py-4 rounded-md">
           Search Articles
-        </button>
+        </Link>
       </div>
 
     </div>
