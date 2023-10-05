@@ -32,3 +32,6 @@ code {
     monospace;
 }
 
+.extra-loose {
+  line-height: 2.5; /* Adjust this value as per your requirement */
+}
