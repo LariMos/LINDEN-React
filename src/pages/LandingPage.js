@@ -48,7 +48,7 @@ function LandingPage() {
         </div>
         <div className='flex flex-row items-center mt-8 p-4'>
         <img src={Arrow} alt="Arrow pointing down" className="hover-target" onClick={scrollToNextDiv} />
-        <div className='hover-target text-lg animate-bounce ml-8' onClick={scrollToNextDiv}>Scroll Down</div>
+        <div className='hover-target text-lg ml-8' onClick={scrollToNextDiv}>Scroll Down</div>
         </div>
       </div>
 
