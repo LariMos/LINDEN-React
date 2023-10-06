@@ -52,21 +52,21 @@ function LandingPage() {
         </div>
       </div>
 
-      <div ref={targetRef} className="bg-yellow-400 h-full flex flex-col items-center justify-center text-center p-10 lg:px-80 md:px-80 mt-20 lg:mt-20">
-          <div className="md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
+      <div ref={targetRef} className="bg-yellow-400 h-full flex flex-col items-center justify-center font-poppins-900 text-left p-10 mt-20 lg:mt-20">
+          <div className="font-bold text-2xl lg:text-6xl font-bold mb-12 w-1/3 lg:mb-6">
             "The more that you read, the more things you will know. The more that you learn, the more places you'll go."
           </div>
-          <div className="text-sm lg:text-xl md:text-lg font-light">
+          <div className="text-lg w-1/3 lg:text-2xl md:text-lg">
             Dr. Seuss in "I Can Read With My Eyes Shut!"
           </div>
       </div>
       
-      <div className="h-full lg:h-96 bg-white flex flex-col items-center justify-center p-8 lg:p-40">
+      <div className="h-full flex flex-col items-center justify-center p-8 bg-white lg:p-40">
         <div className="text-2xl lg:text-4xl font-bold">
           Ready to start your adventure? Let's go!
         </div>
-        <Link to="/search" className="bg-lime-500 hover-target text-white px-6 py-3 m-12 lg:px-8 lg:py-4 rounded-md">
-          Search Articles
+        <Link to="/search" className="mt-12 mb-32 hover-target border-4 border-black bg-white hover:bg-tahiti-500 text-black font-bold py-4 px-8 mt-4 rounded text-xl lg:text-3xl w-[600px]">
+          CLICK TO BEGIN YOUR SEARCH
         </Link>
       </div>
 
