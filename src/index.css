@@ -35,3 +35,9 @@ code {
 .extra-loose {
   line-height: 2.5; /* Adjust this value as per your requirement */
 }
+
+.scroller {
+  width: 300px; 
+  flex-shrink: 0; /* prevents the flex container from shrinking the item */
+}
+

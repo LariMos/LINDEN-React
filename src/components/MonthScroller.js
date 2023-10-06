@@ -1,20 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-function MonthScroller({ onMonthSelect }) {
+function MonthScroller({ onMonthSelect, selectedMonthIndex }) {
+    const [localSelectedMonth, setLocalSelectedMonth] = useState(selectedMonthIndex);
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const monthRefs = months.map(() => React.createRef());
+
+    // Update local state whenever the prop changes
+    useEffect(() => {
+        setLocalSelectedMonth(selectedMonthIndex);
+    }, [selectedMonthIndex]);
+
+    useEffect(() => {
+        if (localSelectedMonth !== null && monthRefs[localSelectedMonth]?.current) {
+            monthRefs[localSelectedMonth].current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+            });
+        }
+    }, [localSelectedMonth]);
+    
 
     const handleMonthClick = (monthIndex) => {
+        setLocalSelectedMonth(monthIndex);
         if (onMonthSelect) {
-            onMonthSelect(monthIndex + 1); // To get the month number (1-12)
+            onMonthSelect(monthIndex);
         }
     };
 
     return (
-        <div className="overflow-y-auto h-96 w-120 border border-gray-300"> {/* Adjusted dimensions */}
+        <div className="scroller overflow-y-auto h-96 border-4 border-black rounded-lg">
             {months.map((month, index) => (
                 <div
+                    ref={monthRefs[index]}
                     key={month}
-                    className="hover-target cursor-pointer px-20 py-10 hover:bg-gray-200 text-center text-5xl" 
+                    className={`flex items-center justify-center hover-target cursor-pointer px-20 py-10 text-center text-5xl border-b ${localSelectedMonth === index ? 'bg-black text-white' : 'hover:bg-gray-200'}`}
                     onClick={() => handleMonthClick(index)}
                 >
                     {month}
