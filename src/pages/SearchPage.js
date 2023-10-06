@@ -91,37 +91,38 @@ function SearchPage() {
                     <div className='hover-target font-archivio text-lg ml-8' onClick={scrollToNextDiv}>Scroll Down</div>
                 </div>
             </div>
-            <div ref={targetRef} className="flex h-full flex-col items-center justify-center mx-20">
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <div className="text-center mb-4 w-1/3 mx-auto font-poppins-900 font-bold text-2xl lg:text-6xl leading-loose">Type the year and month</div>
+            <div ref={targetRef} className="flex flex-col items-center justify-center">
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <div className="text-left mb-4 w-1/3 mx-auto font-poppins-900 font-bold text-xl lg:text-3xl leading-loose">*Type the year and month</div>
+                    {/* <div className="text-center mb-16 w-1/3 mx-auto font-poppins-900 font-bold text-2xl lg:text-6xl leading-loose">Year and Month</div> */}
                     <div className="flex space-x-4 mb-4">
                         <input 
                             type="text" 
                             placeholder="Year" 
                             value={inputYear} 
                             onChange={handleYearInputChange}
-                            className="border p-2 w-1/2 text-center"
+                            className="scroller border-4 border-black rounded-lg p-2 scroller text-center text-5xl"
                         />
                         <input 
                             type="text" 
                             placeholder="Month" 
                             value={inputMonth}
                             onChange={handleMonthInputChange}
-                            className="border p-2 w-1/2 text-center"
+                            className="border-4 border-black rounded-lg scroller p-2 text-5xl text-center"
                         />
                     </div>
-                    <div className="text-center mb-4 w-1/3 mx-auto font-poppins-900 font-bold text-2xl lg:text-6xl leading-loose">Or scroll to find it</div>
+                    <div className="text-left mt-12 mb-4 w-1/3 mx-auto font-poppins-900 font-bold text-xl lg:text-3xl leading-loose">*Or use the scroll to select them</div>
                     <div className="flex space-x-4">
                     <YearScroller selectedYear={selectedYear} onYearSelect={handleYearChange} />
                     <MonthScroller selectedMonthIndex={selectedMonthIndex} onMonthSelect={handleMonthChange} />
                     </div>
-                    <div className="w-full text-center">
-                        {yearPrompt && <p className="text-red-500 text-20xl">Please select a year.</p>}
+                    <div className="w-full flex flex-col items-center justify-center">
+                        {yearPrompt && <p className="mt-12 mb-4 text-left text-red text-xl lg:text-3xl">Please select a year and month</p>}
                         <button 
-                            className="hover-target bg-tahiti-500 hover:bg-tahiti-700 text-white font-bold py-4 px-8 mt-4 rounded text-20xl"
+                            className="mt-12 mb-32 hover-target border-4 border-black bg-white hover:bg-tahiti-500 text-black font-bold py-4 px-8 mt-4 rounded text-xl lg:text-3xl w-[600px]"
                             onClick={handleSearch}
                         >
-                            GET ARTICLES
+                            CLICK TO GET ARTICLES
                         </button>
                     </div>
                 </LocalizationProvider>
