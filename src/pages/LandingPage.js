@@ -18,6 +18,7 @@ function LandingPage() {
 };
 
 
+
   return (
     <div className="relative h-screen">      
       <div className="relative h-full z-10 flex flex-col justify-center items-center leading-none mx-3 lg:mt-0 md:mt-0 lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">
