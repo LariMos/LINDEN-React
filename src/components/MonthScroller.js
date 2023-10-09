@@ -28,7 +28,7 @@ function MonthScroller({ onMonthSelect, selectedMonthIndex }) {
     };
 
     return (
-        <div className="scroller overflow-y-auto h-96 border-4 border-black rounded-lg">
+        <div className="scroller bg-white overflow-y-auto h-96 border-4 border-black rounded-lg">
             {months.map((month, index) => (
                 <div
                     ref={monthRefs[index]}
