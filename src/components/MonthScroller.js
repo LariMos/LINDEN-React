@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const monthRefs = months.map(() => React.createRef());
 
 function MonthScroller({ onMonthSelect, selectedMonthIndex }) {
     const [localSelectedMonth, setLocalSelectedMonth] = useState(selectedMonthIndex);
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const monthRefs = months.map(() => React.createRef());
 
     // Update local state whenever the prop changes
     useEffect(() => {

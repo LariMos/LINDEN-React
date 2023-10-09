@@ -11,14 +11,16 @@ function YearScroller({ onYearSelect, selectedYear }) {
     }, [selectedYear]);
 
     useEffect(() => {
-        if (localSelectedYear !== null && yearRefs[localSelectedYear - startYear]?.current) {
-            yearRefs[localSelectedYear - startYear].current.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-            });
+        function scrollToYear() {
+            if (localSelectedYear !== null && yearRefs[localSelectedYear - startYear]?.current) {
+                yearRefs[localSelectedYear - startYear].current.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                });
+            }
         }
-    }, [localSelectedYear]);
-    
+        scrollToYear();
+    }, [localSelectedYear, yearRefs]);
 
     const handleYearClick = (year) => {
         setLocalSelectedYear(year);
