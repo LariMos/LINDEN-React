@@ -7,6 +7,7 @@ import aboutPng from '../images/about.png';
 import helpPng from '../images/help.png';
 
 
+
 const NavBar = () => {
 
   const handleHelpClick = () => {
@@ -16,9 +17,9 @@ const NavBar = () => {
       text: 'Our assistants have been contacted',
       confirmButtonText: 'OK',
       customClass: {
-        title: 'font-poppins font-bold text-5xl',
-        content: 'font-poppins text-3xl',
-        confirmButton: 'font-poppins hover-target'
+        title: 'font-poppins-800 font-bold text-black text-5xl',
+        content: 'font-poppins-800 text-3xl',
+        confirmButton: 'font-poppins-300 hover-target'
       }
     });
   };

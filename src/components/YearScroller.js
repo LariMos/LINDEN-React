@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 function YearScroller({ onYearSelect, selectedYear }) {
     const [localSelectedYear, setLocalSelectedYear] = useState(selectedYear);
     const startYear = 1908;
-    const endYear = 2023;
+    const endYear = 1926;
     const yearRefs = Array.from({ length: endYear - startYear + 1 }, (_, index) => React.createRef());
 
     useEffect(() => {
@@ -28,7 +28,7 @@ function YearScroller({ onYearSelect, selectedYear }) {
     };
 
     return (
-        <div className="scroller overflow-y-auto h-96 border-4 border-black rounded-lg">
+        <div className="scroller bg-white overflow-y-auto h-96 border-4 border-black rounded-lg">
             {Array.from({ length: endYear - startYear + 1 }, (_, index) => startYear + index).map(year => (
                 <div
                     ref={yearRefs[year - startYear]}

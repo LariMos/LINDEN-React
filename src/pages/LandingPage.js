@@ -2,22 +2,24 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import lindenSunVideo from '../videos/lindensun.mp4';
 import Arrow from '../svg/arrow.svg'; 
+import Footer from '../components/Footer';
 
 
 function LandingPage() {
 
-  const targetRef = useRef(null);
+  const secondDivRef = useRef(null);
+  const thirdDivRef = useRef(null);
 
-  const scrollToNextDiv = () => {
-    if (targetRef.current) {
-        targetRef.current.scrollIntoView({ behavior: 'smooth' });
+
+  const scrollToRef = (ref) => {
+    if (ref.current) {
+        ref.current.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+};
+
 
   return (
-    <div className="relative h-screen">
-      {/* <MouseAnimation /> */}
-      
+    <div className="relative h-screen">      
       <div className="relative h-full z-10 flex flex-col justify-center items-center leading-none mx-3 lg:mt-0 md:mt-0 lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">
         <div>WELCOME</div>
         <div>TO</div>
@@ -46,29 +48,34 @@ function LandingPage() {
         <div className="text-xl lg:text-3xl md:text-2xl sm:text-xl leading-6 lg:leading-8">
           YOUR HOME FOR <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">The New York Times</span> ARTICLES
         </div>
-        <div className='flex flex-row items-center mt-8 p-4'>
-        <img src={Arrow} alt="Arrow pointing down" className="hover-target" onClick={scrollToNextDiv} />
-        <div className='hover-target text-lg ml-8' onClick={scrollToNextDiv}>Scroll Down</div>
-        </div>
+        <div className="absolute bottom-40 left-12 flex flex-col items-center">
+        <div className="hover-target text-lg mb-2" onClick={() => scrollToRef(secondDivRef)}>Slide Down</div>
+        <img src={Arrow} alt="Arrow pointing down" className="hover-target" onClick={() => scrollToRef(secondDivRef)} />
+      </div>
       </div>
 
-      <div ref={targetRef} className="bg-yellow-400 h-full flex flex-col items-center justify-center font-poppins-900 text-left p-10 mt-20 lg:mt-20">
-          <div className="font-bold text-2xl lg:text-6xl font-bold mb-12 w-1/3 lg:mb-6">
+      <div ref={secondDivRef} className="relative bg-yellow-400 h-full flex flex-col items-center justify-center font-poppins-900 text-left p-10 mt-20 lg:mt-20">
+          <div className="text-2xl lg:text-6xl font-bold mb-12 w-1/3 lg:mb-6">
             "The more that you read, the more things you will know. The more that you learn, the more places you'll go."
           </div>
-          <div className="text-lg w-1/3 lg:text-2xl md:text-lg">
+          <div className="w-1/3 font-poppins-900 text-xl lg:text-3xl">
             Dr. Seuss in "I Can Read With My Eyes Shut!"
           </div>
+          <div className="absolute bottom-40 left-12 flex flex-col items-center font-archivio">
+        <div className="hover-target text-lg mb-2" onClick={() => scrollToRef(thirdDivRef)}>Slide Down</div>
+        <img src={Arrow} alt="Arrow pointing down" className="hover-target" onClick={() => scrollToRef(thirdDivRef)} />
+      </div>
       </div>
       
-      <div className="h-full flex flex-col items-center justify-center p-8 bg-white lg:p-40">
-        <div className="text-2xl lg:text-4xl font-bold">
+      <div ref={thirdDivRef} className="h-screen flex flex-col items-center justify-center align-items-center bg-tahiti-200 lg:p-40">
+        <div className="font-poppins-900 font-bold text-2xl lg:text-6xl w-1/3 mb-12">
           Ready to start your adventure? Let's go!
         </div>
-        <Link to="/search" className="mt-12 mb-32 hover-target border-4 border-black bg-white hover:bg-tahiti-500 text-black font-bold py-4 px-8 mt-4 rounded text-xl lg:text-3xl w-[600px]">
-          CLICK TO BEGIN YOUR SEARCH
+        <Link to="/search" className="mt-12 mb-32 hover-target border-4 border-black bg-white hover:bg-tahiti-500 text-black font-bold py-4 px-8 mt-4 rounded text-center text-xl lg:text-3xl w-[480px]">
+          CLICK TO START
         </Link>
       </div>
+      <Footer />
 
     </div>
   );

@@ -6,6 +6,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import YearScroller from '../components/YearScroller';
 import MonthScroller from '../components/MonthScroller';
 import Arrow from '../svg/arrow.svg';
+import Footer from '../components/Footer';
 
 const API = 'https://linden-backend-git-verceldeploy-larimos.vercel.app';
 
@@ -86,14 +87,14 @@ function SearchPage() {
                 <div className="lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">BROWSING</div>
                 <div className="mt-5 lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio bg-gradient-to-r from-bermuda to-amber-200 text-transparent bg-clip-text">LINDEN</div>
                 <div className="text-xl lg:text-3xl md:text-2xl sm:text-xl font-archivio leading-6 lg:leading-8">FOR ARTICLES FROM <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">The New York Times</span></div>
-                <div className='flex flex-row items-center mt-8 p-4'>
-                    <img src={Arrow} alt="Arrow pointing down" className="hover-target" onClick={scrollToNextDiv} />
-                    <div className='hover-target font-archivio text-lg ml-8' onClick={scrollToNextDiv}>Scroll Down</div>
+                <div className="absolute bottom-40 left-8 flex flex-col items-center font-archivio">
+                   <div className="hover-target text-lg mb-2" onClick={scrollToNextDiv}>Slide Down</div>
+                   <img src={Arrow} alt="Arrow pointing down" className="hover-target"  onClick={scrollToNextDiv} />
                 </div>
             </div>
-            <div ref={targetRef} className="flex flex-col items-center justify-center">
+            <div ref={targetRef} className="flex h-full bg-amber-100 flex-col items-center justify-center">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <div className="text-left mb-4 w-1/3 mx-auto font-poppins-900 font-bold text-xl lg:text-3xl leading-loose">*Type the year and month</div>
+                    <div className="text-left mt-12 mb-4 w-1/3 mx-auto font-poppins-900 font-bold text-xl lg:text-3xl leading-loose">*Type the year and month</div>
                     {/* <div className="text-center mb-16 w-1/3 mx-auto font-poppins-900 font-bold text-2xl lg:text-6xl leading-loose">Year and Month</div> */}
                     <div className="flex space-x-4 mb-4">
                         <input 
@@ -119,7 +120,7 @@ function SearchPage() {
                     <div className="w-full flex flex-col items-center justify-center">
                         {yearPrompt && <p className="mt-12 mb-4 text-left text-red text-xl lg:text-3xl">Please select a year and month</p>}
                         <button 
-                            className="mt-12 mb-32 hover-target border-4 border-black bg-white hover:bg-tahiti-500 text-black font-bold py-4 px-8 mt-4 rounded text-xl lg:text-3xl w-[600px]"
+                            className="mt-12 mb-32 hover-target border-4 border-black bg-white hover:bg-tahiti-500 text-black font-bold py-4 px-8 mt-4 rounded text-xl lg:text-3xl w-[615px]"
                             onClick={handleSearch}
                         >
                             CLICK TO GET ARTICLES
@@ -127,6 +128,8 @@ function SearchPage() {
                     </div>
                 </LocalizationProvider>
             </div>
+
+            <Footer />
         </div>
     );
 }

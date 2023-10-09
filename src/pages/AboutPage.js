@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRef } from 'react';
 import Arrow from '../svg/arrow.svg'; 
+import Footer from '../components/Footer';
 
 function AboutPage() {
   const targetRef = useRef(null);
@@ -26,16 +27,17 @@ function AboutPage() {
         </div>
       </div> 
       <div ref={targetRef} className="relative flex flex-col justify-center align-center z-10 bg-teal-50 py-32"> {/* Removed h-full and added pb-12 for some padding at the bottom */}
-        <div className="w-1/3 mx-auto font-poppins-900 font-bold text-xl leading-loose lg:text-3xl">
+        <div className="w-1/3 mx-auto font-poppins-900 font-bold text-xl lg:text-3xl">
           <p className="mb-12 font-bold text-2xl lg:text-6xl ">
             In the heart of my grandmother's garden stood Linden, a tree that blossomed with memories.
           </p>
           <p className="mb-12">Every bloom brought forth an enchanting aroma, reminiscent of the stories grandma shared. In Romania, we cherished its leaves, brewing them into medicinal teas, grounding us in tradition and health.</p>
           <p className="mb-12">As the years passed, my grandmother began her battle with dementia. Instead of anchoring her to the present, I learned to journey with her into her past, cherishing her tales. Those moments of reflection inspired the creation of "Linden," an app dedicated to those navigating the labyrinth of Alzheimer's.</p>
-          <p className="mb-12">With Linden, users can delve into the vast archives of The New York Times, offering reading material from as far back as 1908—the birth year of the oldest person in America, and extending to the present day, 2023. Reading isn't just a gateway to the past; studies reveal its power to slow the progression of Alzheimer's.</p>
+          <p className="mb-12">With Linden, users can delve into the vast archives of The New York Times, offering reading material from as far back as 1908—the birth year of the oldest person in America. Reading isn't just a gateway to the past; studies reveal its power to slow the progression of Alzheimer's.</p>
           <p>Linden is more than just an app; it's a bridge to yesteryears and a testament to the power of stories, embodying the essence of my grandmother's legacy and the strength of memories.</p>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
