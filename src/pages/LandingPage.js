@@ -49,7 +49,7 @@ function LandingPage() {
         <div className="text-xl lg:text-3xl md:text-2xl sm:text-xl leading-6 lg:leading-8">
           YOUR HOME FOR <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">The New York Times</span> ARTICLES
         </div>
-        <div className="absolute bottom-40 left-12 flex flex-col items-center">
+        <div className="absolute bottom-40 right-8 flex flex-col items-center">
         <div className="hover-target text-lg mb-2" onClick={() => scrollToRef(secondDivRef)}>Slide Down</div>
         <img src={Arrow} alt="Arrow pointing down" className="hover-target" onClick={() => scrollToRef(secondDivRef)} />
       </div>
@@ -62,7 +62,7 @@ function LandingPage() {
           <div className="w-1/3 font-poppins-900 text-xl lg:text-3xl">
             Dr. Seuss in "I Can Read With My Eyes Shut!"
           </div>
-          <div className="absolute bottom-40 left-12 flex flex-col items-center font-archivio">
+          <div className="absolute bottom-40 right-8 flex flex-col items-center font-archivio">
         <div className="hover-target text-lg mb-2" onClick={() => scrollToRef(thirdDivRef)}>Slide Down</div>
         <img src={Arrow} alt="Arrow pointing down" className="hover-target" onClick={() => scrollToRef(thirdDivRef)} />
       </div>

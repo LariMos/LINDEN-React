@@ -44,7 +44,7 @@ const NavBar = () => {
         </Link>
       </div>
     </div>
-    <div className="fixed bottom-16 right-8 z-50 pointer-events-auto">
+    <div className="fixed bottom-32 left-8 z-50 pointer-events-auto">
       <button onClick={handleHelpClick}>
           <img src={helpPng} alt="Help" className="hover-target w-[145px] lg:w-[145px] md:w-[120px] sm:w-[100px] h-[145px] lg:h-[145px] md:h-[120px] sm:h-[100px]" />
           <div className="hover-target absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-[219px] lg:w-[219px] md:w-[170px] sm:w-[130px] h-[61px] text-center text-white text-[30px] lg:text-[30px] md:text-[24px] sm:text-[20px] font-bold font-poppins-300">HELP</div>
