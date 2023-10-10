@@ -19,7 +19,7 @@ const NavBar = () => {
       customClass: {
         title: 'font-poppins-800 font-bold text-black text-5xl',
         content: 'font-poppins-800 text-3xl',
-        confirmButton: 'font-poppins-300 hover-target'
+        confirmButton: 'font-poppins-300 hover-target border-4 border-black bg-white hover:bg-tahiti-500 text-black font-bold '
       }
     });
   };
