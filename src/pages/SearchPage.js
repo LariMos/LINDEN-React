@@ -87,7 +87,7 @@ function SearchPage() {
                 <div className="lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio">BROWSING</div>
                 <div className="mt-5 lg:text-[180px] md:text-[100px] sm:text-[40px] font-archivio bg-gradient-to-r from-bermuda to-amber-200 text-transparent bg-clip-text">LINDEN</div>
                 <div className="text-xl lg:text-3xl md:text-2xl sm:text-xl font-archivio leading-6 lg:leading-8">FOR ARTICLES FROM <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">The New York Times</span></div>
-                <div className="absolute bottom-40 left-8 flex flex-col items-center font-archivio">
+                <div className="absolute bottom-40 right-8 flex flex-col items-center font-archivio">
                    <div className="hover-target text-lg mb-2" onClick={scrollToNextDiv}>Slide Down</div>
                    <img src={Arrow} alt="Arrow pointing down" className="hover-target"  onClick={scrollToNextDiv} />
                 </div>

@@ -21,7 +21,7 @@ function AboutPage() {
         <div className="text-xl lg:text-3xl md:text-2xl sm:text-xl font-archivio leading-6 lg:leading-8">
          <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">The New York Times</span> ARTICLE SEARCH
         </div>
-        <div className="absolute bottom-40 left-8 flex flex-col items-center font-archivio">
+        <div className="absolute bottom-40 right-8 flex flex-col items-center font-archivio">
           <div className="hover-target text-lg mb-2" onClick={scrollToNextDiv}>Slide Down</div>
           <img src={Arrow} alt="Arrow pointing down" className="hover-target"  onClick={scrollToNextDiv} />
         </div>
