@@ -35,14 +35,14 @@ const NavBar = () => {
       {/* Menu icon for small screens */}
       <div className="sm:block lg:hidden md:hidden flex justify-end p-8">
         <button onClick={() => setIsMenuOpen(true)} className="pointer-events-auto relative">
-          <img src={menuPng} alt="Menu" className="w-40 h-40" />
-          <span className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 font-extrabold font-poppins-600 text-white text-3xl">MENU</span>
+          <img src={menuPng} alt="Menu" className="w-30 h-30" />
+          <span className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 font-extrabold font-poppins-600 text-white text-2xl">MENU</span>
         </button>
 
         {/* Exit icon */}
         {isMenuOpen && (
           <button onClick={() => setIsMenuOpen(false)} className="pointer-events-auto absolute top-8 right-8 z-50">
-            <img src={exitPng} alt="Exit" className="w-40 h-40" />
+            <img src={exitPng} alt="Exit" className="w-30 h-30" />
             <span className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 font-extrabold font-poppins-600 text-black text-3xl">EXIT</span>
           </button>
         )}
