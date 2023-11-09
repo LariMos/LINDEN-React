@@ -41,7 +41,7 @@ const NavBar = () => {
 
         {/* Exit icon */}
         {isMenuOpen && (
-          <button onClick={() => setIsMenuOpen(false)} className="pointer-events-auto absolute top-8 right-8 z-50">
+          <button onClick={() => setIsMenuOpen(false)} className="pointer-events-auto absolute top-8 left-8 z-50">
             <img src={exitPng} alt="Exit" className="w-30 h-30" />
             <span className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 font-extrabold font-poppins-600 text-black text-3xl">EXIT</span>
           </button>
