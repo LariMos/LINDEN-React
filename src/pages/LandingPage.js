@@ -46,8 +46,8 @@ function LandingPage() {
           </svg>
           LINDEN
         </div>
-        <div className="text-xl lg:text-3xl md:text-2xl sm:text-xl leading-6 lg:leading-8">
-          YOUR HOME FOR <span className="font-chomsky md:text-4xl lg:text-6xl sm:text-xl">The New York Times</span> ARTICLES
+        <div className="text-xl lg:text-3xl md:text-xl sm:text-xl leading-6 lg:leading-8">
+          YOUR HOME FOR <span className="font-chomsky md:text-3xl lg:text-6xl sm:text-xl">The New York Times</span> ARTICLES
         </div>
         <div className="absolute bottom-40 right-8 flex flex-col items-center">
         <div className="hover-target text-lg mb-2" onClick={() => scrollToRef(secondDivRef)}>Slide Down</div>
@@ -56,7 +56,7 @@ function LandingPage() {
       </div>
 
       <div ref={secondDivRef} className="relative bg-yellow-400 h-full flex flex-col items-center justify-center font-poppins-900 text-left p-10 mt-20 lg:mt-20">
-          <div className="text-2xl lg:text-6xl font-bold mb-12 w-1/3 lg:mb-6">
+          <div className="sm:text-2xl lg:text-6xl md:text-4xl font-bold mb-12 w-1/3 lg:mb-6">
             "The more that you read, the more things you will know. The more that you learn, the more places you'll go."
           </div>
           <div className="w-1/3 font-poppins-900 text-xl lg:text-3xl">
