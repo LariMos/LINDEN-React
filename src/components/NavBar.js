@@ -31,7 +31,7 @@ const NavBar = () => {
 
   return (
   
-    <div className="fixed top-0 z-50 w-full">
+    <div className="fixed top-0 z-40 w-full">
       {/* Menu icon for small screens */}
       <div className="sm:block lg:hidden md:hidden flex justify-end p-8">
         <button onClick={() => setIsMenuOpen(true)} className="pointer-events-auto relative">

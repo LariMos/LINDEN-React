@@ -72,7 +72,7 @@ function LandingPage() {
         <div className="font-poppins-900 font-bold text-2xl sm:text-2xl md:text-4xl lg:text-6xl w-full sm:w-full md:w-2/3 lg:w-1/3 mb-12">
           Ready to start your adventure? Let's go!
         </div>
-        <Link to="/search" className="hover-target border-4 border-black bg-white hover:bg-tahiti-500 text-black font-bold py-4 px-8 rounded text-center text-xl sm:text-xl md:text-2xl lg:text-3xl w-full sm:w-[300px] md:w-[360px] lg:w-[480px] mt-12 mb-32">
+        <Link to="/search" className="hover-target border-4 border-black bg-white hover:bg-tahiti-500 text-black font-bold py-4 px-8 rounded text-center text-xl sm:text-xl md:text-2xl lg:text-3xl w-full sm:w-[300px] md:w-[360px] lg:w-[480px] mt-12 mb-32 z-50">
           CLICK TO START
         </Link>
       </div>

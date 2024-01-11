@@ -94,26 +94,26 @@ function SearchPage() {
             </div>
             <div ref={targetRef} className="flex h-full bg-amber-100 flex-col items-center justify-center">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <div className="text-left mt-12 mb-4 w-1/3 mx-auto font-poppins-900 font-bold text-xl lg:text-3xl leading-loose">*Type the year and month</div>
+                    <div className="z-50 text-left mt-12 mb-4 w-1/3 mx-auto font-poppins-900 font-bold text-xl lg:text-3xl leading-loose">*Type the year and month</div>
                     {/* <div className="text-center mb-16 w-1/3 mx-auto font-poppins-900 font-bold text-2xl lg:text-6xl leading-loose">Year and Month</div> */}
-                    <div className="flex space-x-4 mb-4">
+                    <div className="z-50 flex space-x-4 mb-4">
                         <input 
                             type="text" 
                             placeholder="Year" 
                             value={inputYear} 
                             onChange={handleYearInputChange}
-                            className="scroller border-4 border-black rounded-lg p-2 scroller text-center text-5xl"
+                            className="z-50 scroller border-4 border-black rounded-lg p-2 scroller text-center text-5xl"
                         />
                         <input 
                             type="text" 
                             placeholder="Month" 
                             value={inputMonth}
                             onChange={handleMonthInputChange}
-                            className="border-4 border-black rounded-lg scroller p-2 text-5xl text-center"
+                            className="z-50 border-4 border-black rounded-lg scroller p-2 text-5xl text-center"
                         />
                     </div>
                     <div className="text-left mt-12 mb-4 w-1/3 mx-auto font-poppins-900 font-bold text-xl lg:text-3xl leading-loose">*Or use the scroll to select them</div>
-                    <div className="flex space-x-4">
+                    <div className="z-50 flex space-x-4">
                     <YearScroller selectedYear={selectedYear} onYearSelect={handleYearChange} />
                     <MonthScroller selectedMonthIndex={selectedMonthIndex} onMonthSelect={handleMonthChange} />
                     </div>
